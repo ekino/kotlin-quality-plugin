@@ -1,0 +1,29 @@
+# overriding default config from https://github.com/arturbosch/detekt/blob/master/detekt-cli/src/main/resources/default-detekt-config.yml
+
+build:
+  maxIssues: 0
+
+complexity:
+  ComplexMethod:
+    ignoreSimpleWhenEntries: true
+    threshold: 11
+  LongParameterList:
+    threshold: 12
+  TooManyFunctions:
+    thresholdInFiles: 20
+    thresholdInClasses: 20
+    thresholdInInterfaces: 20
+    thresholdInObjects: 20
+    thresholdInEnums: 20
+
+performance:
+  SpreadOperator:
+    active: false
+
+style:
+  MaxLineLength:
+    maxLineLength: 180
+  ReturnCount:
+    max: 3
+  ThrowsCount:
+    max: 3
