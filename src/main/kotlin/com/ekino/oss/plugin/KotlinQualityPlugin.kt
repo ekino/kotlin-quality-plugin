@@ -5,9 +5,10 @@ import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.plugins.BasePlugin.BUILD_GROUP
 import org.gradle.api.plugins.JavaPlugin
+import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.plugins.JacocoPlugin
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
@@ -27,18 +28,18 @@ class KotlinQualityPlugin : Plugin<Project> {
 
     with(project) {
 
-      plugins.apply(JavaPlugin::class.java)
-      plugins.apply(JacocoPlugin::class.java)
-      plugins.apply(SonarQubePlugin::class.java)
-      plugins.apply(KtlintPlugin::class.java)
-      plugins.apply(DetektPlugin::class.java)
+      apply<JavaPlugin>()
+      apply<JacocoPlugin>()
+      apply<SonarQubePlugin>()
+      apply<KtlintPlugin>()
+      apply<DetektPlugin>()
 
       val jacocoXmlReportPath = "$buildDir/reports/jacoco/test/jacoco.xml"
 
-      tasks.named("jacocoTestReport", JacocoReport::class.java).configure {
+      tasks.withType<JacocoReport> {
         reports {
-          xml.isEnabled = true
           xml.destination = file(jacocoXmlReportPath)
+          xml.isEnabled = true
           csv.isEnabled = false
           html.isEnabled = false
         }
@@ -50,7 +51,7 @@ class KotlinQualityPlugin : Plugin<Project> {
 
       configure<SonarQubeExtension> {
         properties {
-          property("sonar.projectName", "oss-${project.name}")
+          property("sonar.projectName", project.name)
           property("sonar.sourceEncoding", "UTF-8")
           property("sonar.host.url", "https://sonar.ekino.com")
           property("sonar.coverage.jacoco.xmlReportPaths", jacocoXmlReportPath)
@@ -65,7 +66,9 @@ class KotlinQualityPlugin : Plugin<Project> {
 
       configureDetekt(project)
 
-      tasks["build"].dependsOn("jacocoTestReport")
+      tasks.named(BUILD_GROUP) {
+        dependsOn("jacocoTestReport")
+      }
     }
   }
 
@@ -83,7 +86,7 @@ class KotlinQualityPlugin : Plugin<Project> {
         buildUponDefaultConfig = true
       }
 
-      tasks.withType(Detekt::class) {
+      tasks.withType<Detekt> {
         doLast {
           Files.deleteIfExists(configTempFile)
         }

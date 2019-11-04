@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "com.ekino.oss.plugin"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
 findProperty("releaseVersion")?.let { version = it }
 
 repositories {
@@ -63,7 +63,6 @@ pluginBundle {
   description = "Kotlin Quality plugin for Ekino projects"
 
   (plugins) {
-
     named("kotlin-quality") {
       displayName = "Kotlin Quality plugin"
       tags = listOf("ekino", "kotlin", "quality", "ktlint", "detekt", "sonarqube")
