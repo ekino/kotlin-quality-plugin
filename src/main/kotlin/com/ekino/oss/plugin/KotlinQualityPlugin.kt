@@ -34,7 +34,7 @@ class KotlinQualityPlugin : Plugin<Project> {
       apply<KtlintPlugin>()
       apply<DetektPlugin>()
 
-      val jacocoXmlReportPath = "$buildDir/reports/jacoco/test/jacoco.xml"
+      val jacocoXmlReportPath = "$buildDir/reports/jacoco/test/jacocoTestReport.xml"
 
       tasks.withType<JacocoReport> {
         reports {
