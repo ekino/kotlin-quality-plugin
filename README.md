@@ -20,4 +20,4 @@ This plugin configures the following tasks for any Ekino Java project :
 
 You need to have a JDK 8 at least.
 
-Gradle 5.0 or newer is required.
+Gradle 5.4 or newer is required.
