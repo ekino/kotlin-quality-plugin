@@ -2,7 +2,6 @@
 
 Kotlin Quality plugin for Ekino projects
 
-[![Build Status](https://travis-ci.org/ekino/kotlin-quality-plugin.svg?branch=master)](https://travis-ci.org/ekino/kotlin-quality-plugin)
 [![GitHub (pre-)release](https://img.shields.io/github/release/ekino/kotlin-quality-plugin.svg)](https://github.com/ekino/kotlin-quality-plugin/releases)
 [![GitHub license](https://img.shields.io/github/license/ekino/kotlin-quality-plugin.svg)](https://github.com/ekino/kotlin-quality-plugin/blob/master/LICENSE.md)
 
