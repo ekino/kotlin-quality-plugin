@@ -7,8 +7,8 @@ plugins {
   id("org.sonarqube") version "2.8"
   jacoco
 
-  id("org.jlleitschuh.gradle.ktlint") version "9.1.0"
-  id("io.gitlab.arturbosch.detekt") version "1.1.1"
+  id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
+  id("io.gitlab.arturbosch.detekt") version "1.5.1"
   id("com.gradle.plugin-publish") version "0.10.1"
 }
 
