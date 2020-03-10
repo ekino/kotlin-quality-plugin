@@ -8,7 +8,7 @@ plugins {
   jacoco
 
   id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
-  id("io.gitlab.arturbosch.detekt") version "1.5.1"
+  id("io.gitlab.arturbosch.detekt") version "1.6.0"
   id("com.gradle.plugin-publish") version "0.10.1"
 }
 
@@ -23,8 +23,8 @@ repositories {
 
 dependencies {
   implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8")
-  implementation("org.jlleitschuh.gradle:ktlint-gradle:9.1.0")
-  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.1.1")
+  implementation("org.jlleitschuh.gradle:ktlint-gradle:9.2.1")
+  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.6.0")
 
   testImplementation(gradleTestKit())
   testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
