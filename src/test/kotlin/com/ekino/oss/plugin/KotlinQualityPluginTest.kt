@@ -3,7 +3,6 @@ package com.ekino.oss.plugin
 import org.assertj.core.api.Assertions.assertThat
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
-import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 /**
@@ -12,8 +11,7 @@ import org.junit.jupiter.api.Test
 class KotlinQualityPluginTest {
 
   @Test
-  @DisplayName("should contain configured tasks")
-  fun qualityPlugin() {
+  fun `Should contain configured tasks`() {
 
     val project: Project = ProjectBuilder.builder()
       .build()
@@ -23,5 +21,20 @@ class KotlinQualityPluginTest {
     assertThat(project.tasks)
       .extracting("name")
       .contains("jacocoTestReport", "sonarqube", "build")
+  }
+
+  @Test
+  fun `Should contains applied plugins`() {
+    val project = ProjectBuilder.builder().build()
+
+    assertThat(project.plugins).isEmpty()
+
+    project.plugins.apply("com.ekino.oss.plugin.kotlin-quality")
+
+    assertThat(project.pluginManager.hasPlugin("java")).isTrue()
+    assertThat(project.pluginManager.hasPlugin("jacoco")).isTrue()
+    assertThat(project.pluginManager.hasPlugin("org.sonarqube")).isTrue()
+    assertThat(project.pluginManager.hasPlugin("org.jlleitschuh.gradle.ktlint")).isTrue()
+    assertThat(project.pluginManager.hasPlugin("io.gitlab.arturbosch.detekt")).isTrue()
   }
 }
