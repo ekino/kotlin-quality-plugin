@@ -1,11 +1,13 @@
 # kotlin quality plugin
 
-Kotlin Quality plugin for Ekino projects
+Kotlin Quality plugin for ekino projects
 
 [![GitHub (pre-)release](https://img.shields.io/github/release/ekino/kotlin-quality-plugin.svg)](https://github.com/ekino/kotlin-quality-plugin/releases)
 [![GitHub license](https://img.shields.io/github/license/ekino/kotlin-quality-plugin.svg)](https://github.com/ekino/kotlin-quality-plugin/blob/master/LICENSE.md)
 
 ## Overview
+
+https://plugins.gradle.org/plugin/com.ekino.oss.plugin.kotlin-quality
 
 This plugin configures the following tasks for any Ekino Java project :
 
@@ -15,8 +17,8 @@ This plugin configures the following tasks for any Ekino Java project :
 * Apply the [Gradle Ktlint plugin](https://plugins.gradle.org/plugin/org.jlleitschuh.gradle.ktlint)
 * Apply the [Gradle Detekt plugin](https://plugins.gradle.org/plugin/io.gitlab.arturbosch.detekt)
 
-## Requirement
+## Requirements
 
 You need to have a JDK 8 at least.
 
-Gradle 5.4 or newer is required.
+Gradle 5.4.1 or newer is required.
