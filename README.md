@@ -9,7 +9,7 @@ Kotlin Quality plugin for ekino projects
 
 https://plugins.gradle.org/plugin/com.ekino.oss.plugin.kotlin-quality
 
-This plugin configures the following tasks for any Ekino Java project :
+This plugin configures the following tasks for any ekino Kotlin project :
 
 * Apply the [Gradle Java plugin](https://docs.gradle.org/current/userguide/java_plugin.html)
 * Apply the [Gradle Jacoco plugin](https://docs.gradle.org/current/userguide/jacoco_plugin.html)
