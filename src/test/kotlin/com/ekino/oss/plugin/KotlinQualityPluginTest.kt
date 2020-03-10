@@ -24,7 +24,7 @@ class KotlinQualityPluginTest {
   }
 
   @Test
-  fun `Should contains applied plugins`() {
+  fun `Should contain applied plugins`() {
     val project = ProjectBuilder.builder().build()
 
     assertThat(project.plugins).isEmpty()
