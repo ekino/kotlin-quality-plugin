@@ -22,3 +22,23 @@ This plugin configures the following tasks for any ekino Kotlin project :
 You need to have a JDK 8 at least.
 
 Gradle 5.4.1 or newer is required.
+
+## Usage
+
+The plugin provides a default configuration for detekt.
+However you can override it with your own in a `detekt-config-custom.yml` file at the root of your project
+
+### Configuration
+
+The plugin provides some settings :
+```kotlin
+configure<KotlinQualityPluginExtension> {
+  customDetektConfig = "my-detekt.yml" // custom name for your detekt config, detekt-config-custom.yml by default
+}
+```
+or
+```kotlin
+kotlinQuality {
+  ...
+}
+```
