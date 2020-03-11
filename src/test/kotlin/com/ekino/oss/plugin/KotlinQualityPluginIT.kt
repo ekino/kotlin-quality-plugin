@@ -5,6 +5,7 @@ import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
+import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path
 
@@ -94,5 +95,33 @@ class KotlinQualityPluginIT {
 
     assertThat(result.output)
       .containsSubsequence("Unnecessary space(s)")
+  }
+
+  @Test
+  fun `custom detekt config with default name`(@TempDir tempDir: Path) {
+    val result = runTask("project_with_custom_detekt", tempDir)
+
+    assertThat(result.output)
+      .containsSubsequence("EmptyClassBlock", "UnnecessaryAbstractClass")
+  }
+
+  @Test
+  fun `custom detekt config with custom name`(@TempDir tempDir: Path) {
+    val result = runTask("project_with_custom_detekt_extension", tempDir)
+
+    assertThat(result.output)
+      .containsSubsequence("EmptyClassBlock", "UnnecessaryAbstractClass")
+  }
+
+  private fun runTask(project: String, tempDir: Path, task: String = "build"): BuildResult {
+    File("src/test/resources/$project").copyRecursively(tempDir.toFile())
+
+    return GradleRunner.create()
+      .withArguments(task)
+      .withProjectDir(tempDir.toFile())
+      .withTestKitDir(tempDir.toFile())
+      .withPluginClasspath()
+      .forwardOutput()
+      .build()
   }
 }

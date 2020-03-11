@@ -9,6 +9,8 @@ import org.gradle.api.plugins.BasePlugin.BUILD_GROUP
 import org.gradle.api.plugins.JavaPlugin
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.create
+import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.plugins.JacocoPlugin
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
@@ -27,6 +29,8 @@ class KotlinQualityPlugin : Plugin<Project> {
   override fun apply(project: Project) {
 
     with(project) {
+
+      extensions.create<KotlinQualityPluginExtension>("kotlinQuality")
 
       apply<JavaPlugin>()
       apply<JacocoPlugin>()
@@ -64,7 +68,9 @@ class KotlinQualityPlugin : Plugin<Project> {
         }
       }
 
-      configureDetekt(project)
+      afterEvaluate {
+        configureDetekt(project)
+      }
 
       tasks.named(BUILD_GROUP) {
         dependsOn("jacocoTestReport")
@@ -82,7 +88,10 @@ class KotlinQualityPlugin : Plugin<Project> {
       )
 
       configure<DetektExtension> {
-        config = files(configTempFile)
+        config = files(
+          configTempFile,
+          extensions.getByType<KotlinQualityPluginExtension>().customDetektConfig
+        )
         buildUponDefaultConfig = true
       }
 
