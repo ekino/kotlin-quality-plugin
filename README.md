@@ -34,6 +34,7 @@ The plugin provides some settings :
 ```kotlin
 configure<KotlinQualityPluginExtension> {
   customDetektConfig = "my-detekt.yml" // custom name for your detekt config, detekt-config-custom.yml by default
+  sonarUrl = "https://my-sonar.com"
 }
 ```
 or
