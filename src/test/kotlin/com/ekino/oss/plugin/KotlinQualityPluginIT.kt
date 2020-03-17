@@ -113,6 +113,14 @@ class KotlinQualityPluginIT {
       .containsSubsequence("EmptyClassBlock", "UnnecessaryAbstractClass")
   }
 
+  @Test
+  fun `without custom detekt config `(@TempDir tempDir: Path) {
+    val result = runTask("project_without_custom_detekt", tempDir)
+
+    assertThat(result.output)
+      .containsSubsequence("SUCCESSFUL")
+  }
+
   private fun runTask(project: String, tempDir: Path, task: String = "build"): BuildResult {
     File("src/test/resources/$project").copyRecursively(tempDir.toFile())
 
