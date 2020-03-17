@@ -40,6 +40,7 @@ tasks {
 
 configure<DetektExtension> {
   buildUponDefaultConfig = true
+  config = files("src/main/resources/detekt-config.yml")
 }
 
 gradlePlugin {

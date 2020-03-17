@@ -87,11 +87,17 @@ class KotlinQualityPlugin : Plugin<Project> {
         StandardCopyOption.REPLACE_EXISTING
       )
 
+      val detektConfigFiles = mutableListOf(configTempFile)
+      val customDetektConfig = rootDir.toPath().resolve(extensions.getByType<KotlinQualityPluginExtension>().customDetektConfig)
+      if (Files.exists(customDetektConfig)) {
+        logger.info("Applying custom detekt config")
+        detektConfigFiles.add(customDetektConfig)
+      } else {
+        logger.info("No custom detekt config found")
+      }
+
       configure<DetektExtension> {
-        config = files(
-          configTempFile,
-          extensions.getByType<KotlinQualityPluginExtension>().customDetektConfig
-        )
+        config = files(detektConfigFiles)
         buildUponDefaultConfig = true
       }
 
