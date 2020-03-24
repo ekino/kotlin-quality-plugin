@@ -2,6 +2,7 @@
 
 Kotlin Quality plugin for ekino projects
 
+[![GitHub Workflow Status (master)](https://img.shields.io/github/workflow/status/ekino/kotlin-quality-plugin/Build%20branch/master.svg)](https://github.com/ekino/kotlin-quality-plugin/actions?query=workflow%3A%22Build+branch%22+branch%3A%22master%22+)
 [![GitHub (pre-)release](https://img.shields.io/github/release/ekino/kotlin-quality-plugin.svg)](https://github.com/ekino/kotlin-quality-plugin/releases)
 [![GitHub license](https://img.shields.io/github/license/ekino/kotlin-quality-plugin.svg)](https://github.com/ekino/kotlin-quality-plugin/blob/master/LICENSE.md)
 
