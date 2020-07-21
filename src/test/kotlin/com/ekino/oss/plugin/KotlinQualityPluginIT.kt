@@ -27,7 +27,7 @@ class KotlinQualityPluginIT {
               mavenCentral()
           }
           
-        """.trimIndent()
+      """.trimIndent()
 
     val file = tempDir.resolve("build.gradle.kts")
     Files.write(file, buildFileContent.toByteArray())
@@ -54,7 +54,7 @@ class KotlinQualityPluginIT {
           repositories {
               mavenCentral()
           } // no newline 
-        """.trimIndent()
+      """.trimIndent()
 
     val file = tempDir.resolve("build.gradle.kts")
     Files.write(file, buildFileContent.toByteArray())
@@ -82,7 +82,7 @@ class KotlinQualityPluginIT {
               mavenCentral()
           }
           
-        """.trimIndent()
+      """.trimIndent()
 
     val file = tempDir.resolve("build.gradle.kts")
     Files.write(file, buildFileContent.toByteArray())

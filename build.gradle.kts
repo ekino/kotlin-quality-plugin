@@ -4,16 +4,16 @@ plugins {
   `kotlin-dsl`
   `java-gradle-plugin`
 
-  id("org.sonarqube") version "2.8"
+  id("org.sonarqube") version "3.0"
   jacoco
 
-  id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
-  id("io.gitlab.arturbosch.detekt") version "1.6.0"
+  id("org.jlleitschuh.gradle.ktlint") version "9.3.0"
+  id("io.gitlab.arturbosch.detekt") version "1.10.0"
   id("com.gradle.plugin-publish") version "0.10.1"
 }
 
 group = "com.ekino.oss.plugin"
-version = "1.4.0"
+version = "2.0.0"
 findProperty("releaseVersion")?.let { version = it }
 
 repositories {
@@ -22,9 +22,9 @@ repositories {
 }
 
 dependencies {
-  implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8")
-  implementation("org.jlleitschuh.gradle:ktlint-gradle:9.2.1")
-  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.6.0")
+  implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0")
+  implementation("org.jlleitschuh.gradle:ktlint-gradle:9.3.0")
+  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.10.0")
 
   testImplementation(gradleTestKit())
   testImplementation("org.junit.jupiter:junit-jupiter:5.6.0")
