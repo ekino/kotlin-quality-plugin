@@ -1,4 +1,4 @@
-# overriding default config from https://github.com/arturbosch/detekt/blob/master/detekt-cli/src/main/resources/default-detekt-config.yml
+# overriding default config from https://github.com/arturbosch/detekt/blob/master/detekt-core/src/main/resources/default-detekt-config.yml
 
 build:
   maxIssues: 0
@@ -8,7 +8,8 @@ complexity:
     ignoreSimpleWhenEntries: true
     threshold: 11
   LongParameterList:
-    threshold: 12
+    functionThreshold: 12
+    constructorThreshold: 12
   TooManyFunctions:
     thresholdInFiles: 20
     thresholdInClasses: 20
