@@ -28,7 +28,7 @@ dependencies {
 
   testImplementation(gradleTestKit())
   testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
-  testImplementation("org.assertj:assertj-core:3.18.1")
+  testImplementation("org.assertj:assertj-core:3.19.0")
 }
 
 tasks {
