@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-  implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.1.1")
+  implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.2.0")
   implementation("org.jlleitschuh.gradle:ktlint-gradle:9.3.0")
   implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.16.0")
 
