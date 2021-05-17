@@ -8,7 +8,7 @@ plugins {
   jacoco
 
   id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
-  id("io.gitlab.arturbosch.detekt") version "1.16.0"
+  id("io.gitlab.arturbosch.detekt") version "1.17.0"
   id("com.gradle.plugin-publish") version "0.14.0"
 }
 
