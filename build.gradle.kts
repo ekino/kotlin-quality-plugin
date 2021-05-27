@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "com.ekino.oss.plugin"
-version = "2.0.0"
+version = "2.1.1"
 findProperty("releaseVersion")?.let { version = it }
 
 repositories {
