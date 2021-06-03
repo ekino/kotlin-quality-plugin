@@ -7,13 +7,13 @@ plugins {
   id("org.sonarqube") version "3.2.0"
   jacoco
 
-  id("org.jlleitschuh.gradle.ktlint") version "10.0.0"
+  id("org.jlleitschuh.gradle.ktlint") version "10.1.0"
   id("io.gitlab.arturbosch.detekt") version "1.17.1"
   id("com.gradle.plugin-publish") version "0.15.0"
 }
 
 group = "com.ekino.oss.plugin"
-version = "2.1.1"
+version = "3.0.0"
 findProperty("releaseVersion")?.let { version = it }
 
 repositories {
@@ -23,7 +23,7 @@ repositories {
 
 dependencies {
   implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.2.0")
-  implementation("org.jlleitschuh.gradle:ktlint-gradle:9.3.0")
+  implementation("org.jlleitschuh.gradle:ktlint-gradle:10.1.0")
   implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.17.1")
 
   testImplementation(gradleTestKit())
