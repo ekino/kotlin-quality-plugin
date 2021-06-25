@@ -42,10 +42,10 @@ class KotlinQualityPlugin : Plugin<Project> {
 
       tasks.withType<JacocoReport> {
         reports {
-          xml.destination = file(jacocoXmlReportPath)
-          xml.isEnabled = true
-          csv.isEnabled = false
-          html.isEnabled = false
+          xml.outputLocation.set(file(jacocoXmlReportPath))
+          xml.required.set(true)
+          csv.required.set(false)
+          html.required.set(false)
         }
       }
 
