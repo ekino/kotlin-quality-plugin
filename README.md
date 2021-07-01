@@ -27,7 +27,7 @@ It requires Gradle 6.4.1 or later.
 ## Usage
 
 The plugin provides a default configuration for detekt.
-However you can override it with your own in a `detekt-config-custom.yml` file at the root of your project
+However, you can override it with your own in a `detekt-config-custom.yml` file at the root of your project
 
 ### Configuration
 
