@@ -27,7 +27,7 @@ dependencies {
   implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.18.1")
 
   testImplementation(gradleTestKit())
-  testImplementation("org.junit.jupiter:junit-jupiter:5.8.0")
+  testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
   testImplementation("org.assertj:assertj-core:3.21.0")
 }
 
