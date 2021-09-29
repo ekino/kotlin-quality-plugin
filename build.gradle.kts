@@ -28,7 +28,7 @@ dependencies {
 
   testImplementation(gradleTestKit())
   testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
-  testImplementation("org.assertj:assertj-core:3.21.0")
+  testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.25")
 }
 
 tasks {

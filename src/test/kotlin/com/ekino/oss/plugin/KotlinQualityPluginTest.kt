@@ -1,6 +1,9 @@
 package com.ekino.oss.plugin
 
-import org.assertj.core.api.Assertions.assertThat
+import assertk.assertThat
+import assertk.assertions.isEmpty
+import assertk.assertions.isNotNull
+import assertk.assertions.isTrue
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
@@ -13,14 +16,13 @@ class KotlinQualityPluginTest {
   @Test
   fun `Should contain configured tasks`() {
 
-    val project: Project = ProjectBuilder.builder()
-      .build()
+    val project: Project = ProjectBuilder.builder().build()
 
     project.plugins.apply("com.ekino.oss.plugin.kotlin-quality")
 
-    assertThat(project.tasks)
-      .extracting("name")
-      .contains("jacocoTestReport", "sonarqube", "build")
+    assertThat(project.tasks.named("jacocoTestReport")).isNotNull()
+    assertThat(project.tasks.named("sonarqube")).isNotNull()
+    assertThat(project.tasks.named("build")).isNotNull()
   }
 
   @Test
