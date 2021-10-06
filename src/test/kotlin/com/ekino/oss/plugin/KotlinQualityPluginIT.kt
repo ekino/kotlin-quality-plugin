@@ -1,6 +1,7 @@
 package com.ekino.oss.plugin
 
-import org.assertj.core.api.Assertions.assertThat
+import assertk.assertThat
+import assertk.assertions.contains
 import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
 import org.junit.jupiter.api.Test
@@ -38,8 +39,7 @@ class KotlinQualityPluginIT {
       .withPluginClasspath()
       .build()
 
-    assertThat(result.output)
-      .containsSubsequence("jacocoTestReport", "build")
+    assertThat(result.output).contains("jacocoTestReport", "build")
   }
 
   @Test
@@ -65,8 +65,7 @@ class KotlinQualityPluginIT {
       .withPluginClasspath()
       .buildAndFail()
 
-    assertThat(result.output)
-      .containsSubsequence("must end with a newline")
+    assertThat(result.output).contains("must end with a newline")
   }
 
   @Test
@@ -93,32 +92,28 @@ class KotlinQualityPluginIT {
       .withPluginClasspath()
       .buildAndFail()
 
-    assertThat(result.output)
-      .containsSubsequence("Unnecessary space(s)")
+    assertThat(result.output).contains("Unnecessary space(s)")
   }
 
   @Test
   fun `custom detekt config with default name`(@TempDir tempDir: Path) {
     val result = runTask("project_with_custom_detekt", tempDir)
 
-    assertThat(result.output)
-      .containsSubsequence("EmptyClassBlock", "UnnecessaryAbstractClass")
+    assertThat(result.output).contains("EmptyClassBlock", "UnnecessaryAbstractClass")
   }
 
   @Test
   fun `custom detekt config with custom name`(@TempDir tempDir: Path) {
     val result = runTask("project_with_custom_detekt_extension", tempDir)
 
-    assertThat(result.output)
-      .containsSubsequence("EmptyClassBlock", "UnnecessaryAbstractClass")
+    assertThat(result.output).contains("EmptyClassBlock", "UnnecessaryAbstractClass")
   }
 
   @Test
   fun `without custom detekt config `(@TempDir tempDir: Path) {
     val result = runTask("project_without_custom_detekt", tempDir)
 
-    assertThat(result.output)
-      .containsSubsequence("SUCCESSFUL")
+    assertThat(result.output).contains("SUCCESSFUL")
   }
 
   private fun runTask(project: String, tempDir: Path, task: String = "build"): BuildResult {
