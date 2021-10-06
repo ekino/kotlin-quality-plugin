@@ -36,6 +36,13 @@ tasks {
     useJUnitPlatform()
     jvmArgs = listOf("-Duser.language=en")
   }
+
+  jacocoTestReport {
+    reports {
+      xml.required.set(true)
+      html.required.set(false)
+    }
+  }
 }
 
 configure<DetektExtension> {
