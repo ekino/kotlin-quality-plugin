@@ -4,7 +4,7 @@ plugins {
   `kotlin-dsl`
   `java-gradle-plugin`
 
-  id("org.sonarqube") version "3.3"
+  id("org.sonarqube") version "3.4.0.2513"
   jacoco
 
   id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
