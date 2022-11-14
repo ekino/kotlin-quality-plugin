@@ -9,7 +9,7 @@ plugins {
 
   id("org.jlleitschuh.gradle.ktlint") version "11.0.0"
   id("io.gitlab.arturbosch.detekt") version "1.21.0"
-  id("com.gradle.plugin-publish") version "1.0.0"
+  id("com.gradle.plugin-publish") version "1.1.0"
 }
 
 group = "com.ekino.oss.plugin"
