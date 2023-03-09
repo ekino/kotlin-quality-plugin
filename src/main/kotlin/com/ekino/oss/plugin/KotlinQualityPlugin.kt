@@ -14,6 +14,7 @@ import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.plugins.JacocoPlugin
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
+import org.gradle.testing.jacoco.plugins.JacocoReportAggregationPlugin
 import org.gradle.testing.jacoco.tasks.JacocoReport
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.KtlintPlugin
@@ -32,15 +33,13 @@ class KotlinQualityPlugin : Plugin<Project> {
       apply<SonarQubePlugin>()
       apply<KtlintPlugin>()
       apply<DetektPlugin>()
+      apply<JacocoReportAggregationPlugin>()
 
-      val jacocoXmlReportPath = "$buildDir/reports/jacoco/test/jacocoTestReport.xml"
-
-      tasks.withType<JacocoReport> {
+      val jacocoTestReports = tasks.withType<JacocoReport> {
         reports {
-          xml.outputLocation.set(file(jacocoXmlReportPath))
           xml.required.set(true)
           csv.required.set(false)
-          html.required.set(false)
+          html.required.set(true)
         }
       }
 
@@ -53,7 +52,7 @@ class KotlinQualityPlugin : Plugin<Project> {
           property("sonar.projectName", project.name)
           property("sonar.sourceEncoding", "UTF-8")
           property("sonar.host.url", extension.sonarUrl)
-          property("sonar.coverage.jacoco.xmlReportPaths", jacocoXmlReportPath)
+          property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/test/jacocoTestReport.xml")
         }
       }
 
@@ -68,7 +67,7 @@ class KotlinQualityPlugin : Plugin<Project> {
       }
 
       tasks.named(BUILD_GROUP) {
-        dependsOn("jacocoTestReport")
+        dependsOn(jacocoTestReports)
       }
     }
   }
