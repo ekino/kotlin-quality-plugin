@@ -4,7 +4,7 @@ build:
   maxIssues: 0
 
 complexity:
-  ComplexMethod:
+  CyclomaticComplexMethod:
     ignoreSimpleWhenEntries: true
     threshold: 11
   LongParameterList:

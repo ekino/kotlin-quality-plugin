@@ -22,7 +22,7 @@ This plugin configures the following tasks for any ekino Kotlin project :
 
 You need to have a JDK 11 at least.
 
-It requires Gradle 7.0.2 or later.
+It requires Gradle 7.6.2 or later.
 
 ## Usage
 

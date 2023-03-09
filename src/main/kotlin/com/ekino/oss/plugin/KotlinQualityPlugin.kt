@@ -17,19 +17,14 @@ import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 import org.gradle.testing.jacoco.tasks.JacocoReport
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.KtlintPlugin
-import org.sonarqube.gradle.SonarQubeExtension
+import org.sonarqube.gradle.SonarExtension
 import org.sonarqube.gradle.SonarQubePlugin
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
-/**
- * Kotlin Quality plugin.
- */
 class KotlinQualityPlugin : Plugin<Project> {
   override fun apply(project: Project) {
-
     with(project) {
-
       val extension = extensions.create<KotlinQualityPluginExtension>("kotlinQuality")
 
       apply<JavaPlugin>()
@@ -53,7 +48,7 @@ class KotlinQualityPlugin : Plugin<Project> {
         toolVersion = "0.8.8"
       }
 
-      configure<SonarQubeExtension> {
+      configure<SonarExtension> {
         properties {
           property("sonar.projectName", project.name)
           property("sonar.sourceEncoding", "UTF-8")
@@ -82,7 +77,7 @@ class KotlinQualityPlugin : Plugin<Project> {
     with(project) {
       val configTempFile = Files.createTempFile("detekt-config-", ".yml")
       Files.copy(
-        KotlinQualityPlugin::class.java.getResourceAsStream("/detekt-config.yml"),
+        KotlinQualityPlugin::class.java.getResourceAsStream("/detekt-config.yml")!!,
         configTempFile,
         StandardCopyOption.REPLACE_EXISTING
       )
