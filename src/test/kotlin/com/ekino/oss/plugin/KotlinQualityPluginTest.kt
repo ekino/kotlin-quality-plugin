@@ -15,7 +15,6 @@ class KotlinQualityPluginTest {
 
   @Test
   fun `Should contain configured tasks`() {
-
     val project: Project = ProjectBuilder.builder().build()
 
     project.plugins.apply("com.ekino.oss.plugin.kotlin-quality")

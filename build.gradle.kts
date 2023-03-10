@@ -4,16 +4,15 @@ plugins {
   `kotlin-dsl`
   `java-gradle-plugin`
 
-  id("org.sonarqube") version "3.5.0.2730"
   jacoco
 
-  id("org.jlleitschuh.gradle.ktlint") version "11.1.0"
+  id("org.jlleitschuh.gradle.ktlint") version "11.3.1"
   id("io.gitlab.arturbosch.detekt") version "1.22.0"
   id("com.gradle.plugin-publish") version "1.1.0"
 }
 
 group = "com.ekino.oss.plugin"
-version = "3.3.1"
+version = "4.0.0"
 findProperty("releaseVersion")?.let { version = it }
 
 repositories {
@@ -22,8 +21,8 @@ repositories {
 }
 
 dependencies {
-  implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3")
-  implementation("org.jlleitschuh.gradle:ktlint-gradle:10.1.0")
+  implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.0.0.2929")
+  implementation("org.jlleitschuh.gradle.ktlint:org.jlleitschuh.gradle.ktlint.gradle.plugin:11.0.0")
   implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.22.0")
 
   testImplementation(gradleTestKit())
@@ -51,11 +50,15 @@ configure<DetektExtension> {
 }
 
 gradlePlugin {
+  website.set("https://github.com/ekino/kotlin-quality-plugin")
+  vcsUrl.set("https://github.com/ekino/kotlin-quality-plugin")
   plugins {
     create("kotlin-quality") {
       id = "com.ekino.oss.plugin.kotlin-quality"
       implementationClass = "com.ekino.oss.plugin.KotlinQualityPlugin"
       displayName = "Kotlin Quality plugin"
+      description = "Kotlin Quality plugin for Ekino projects"
+      tags.set(listOf("ekino", "kotlin", "quality", "ktlint", "detekt", "sonarqube"))
     }
   }
 }
@@ -64,11 +67,4 @@ ktlint {
   filter {
     include("src/**/*.kt")
   }
-}
-
-pluginBundle {
-  website = "https://github.com/ekino/kotlin-quality-plugin"
-  vcsUrl = "https://github.com/ekino/kotlin-quality-plugin"
-  description = "Kotlin Quality plugin for Ekino projects"
-  tags = listOf("ekino", "kotlin", "quality", "ktlint", "detekt", "sonarqube")
 }
