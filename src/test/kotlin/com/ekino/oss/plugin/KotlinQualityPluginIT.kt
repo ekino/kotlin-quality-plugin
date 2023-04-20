@@ -92,7 +92,7 @@ class KotlinQualityPluginIT {
       .withPluginClasspath()
       .buildAndFail()
 
-    assertThat(result.output).contains("Unnecessary space(s)")
+    assertThat(result.output).contains("Unnecessary long whitespace")
   }
 
   @Test
