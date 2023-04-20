@@ -35,11 +35,13 @@ class KotlinQualityPlugin : Plugin<Project> {
       apply<DetektPlugin>()
       apply<JacocoReportAggregationPlugin>()
 
-      val jacocoTestReports = tasks.withType<JacocoReport> {
-        reports {
-          xml.required.set(true)
-          csv.required.set(false)
-          html.required.set(true)
+      val jacocoTestReports = tasks.withType<JacocoReport>().also {
+        it.configureEach {
+          reports {
+            xml.required.set(true)
+            csv.required.set(false)
+            html.required.set(true)
+          }
         }
       }
 
@@ -95,7 +97,7 @@ class KotlinQualityPlugin : Plugin<Project> {
         buildUponDefaultConfig = true
       }
 
-      tasks.withType<Detekt> {
+      tasks.withType<Detekt>().configureEach {
         doLast {
           Files.deleteIfExists(configTempFile)
         }
