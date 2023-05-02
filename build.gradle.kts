@@ -26,7 +26,7 @@ dependencies {
   implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.22.0")
 
   testImplementation(gradleTestKit())
-  testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
+  testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
   testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.25")
 }
 
