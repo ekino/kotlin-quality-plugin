@@ -7,7 +7,7 @@ plugins {
   jacoco
 
   id("org.jlleitschuh.gradle.ktlint") version "11.3.2"
-  id("io.gitlab.arturbosch.detekt") version "1.22.0"
+  id("io.gitlab.arturbosch.detekt") version "1.23.1"
   id("com.gradle.plugin-publish") version "1.2.0"
 }
 
@@ -26,8 +26,8 @@ dependencies {
   implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.22.0")
 
   testImplementation(gradleTestKit())
-  testImplementation("org.junit.jupiter:junit-jupiter:5.9.3")
   testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.26.1")
+  testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
 }
 
 tasks {
