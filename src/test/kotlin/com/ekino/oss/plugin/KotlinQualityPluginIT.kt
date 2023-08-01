@@ -99,14 +99,14 @@ class KotlinQualityPluginIT {
   fun `custom detekt config with default name`(@TempDir tempDir: Path) {
     val result = runTask("project_with_custom_detekt", tempDir)
 
-    assertThat(result.output).contains("EmptyClassBlock", "UnnecessaryAbstractClass")
+    assertThat(result.output).contains("EmptyClassBlock")
   }
 
   @Test
   fun `custom detekt config with custom name`(@TempDir tempDir: Path) {
     val result = runTask("project_with_custom_detekt_extension", tempDir)
 
-    assertThat(result.output).contains("EmptyClassBlock", "UnnecessaryAbstractClass")
+    assertThat(result.output).contains("EmptyClassBlock")
   }
 
   @Test

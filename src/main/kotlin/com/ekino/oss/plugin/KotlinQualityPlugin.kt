@@ -93,7 +93,7 @@ class KotlinQualityPlugin : Plugin<Project> {
       }
 
       configure<DetektExtension> {
-        config = files(detektConfigFiles)
+        config.from(files(detektConfigFiles))
         buildUponDefaultConfig = true
       }
 
