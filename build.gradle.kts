@@ -6,7 +6,7 @@ plugins {
 
   jacoco
 
-  id("org.jlleitschuh.gradle.ktlint") version "11.5.0"
+  id("org.jlleitschuh.gradle.ktlint") version "11.6.0"
   id("io.gitlab.arturbosch.detekt") version "1.23.1"
   id("com.gradle.plugin-publish") version "1.2.0"
 }
