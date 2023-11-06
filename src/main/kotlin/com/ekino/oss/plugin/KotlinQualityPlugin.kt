@@ -54,7 +54,7 @@ class KotlinQualityPlugin : Plugin<Project> {
           property("sonar.projectName", project.name)
           property("sonar.sourceEncoding", "UTF-8")
           property("sonar.host.url", extension.sonarUrl)
-          property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/test/jacocoTestReport.xml")
+          property("sonar.coverage.jacoco.xmlReportPaths", "${layout.buildDirectory}/reports/jacoco/test/jacocoTestReport.xml")
         }
       }
 
