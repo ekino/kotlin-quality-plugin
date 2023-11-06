@@ -4,4 +4,6 @@ open class KotlinQualityPluginExtension {
   var customDetektConfig = "detekt-config-custom.yml"
 
   var sonarUrl = "https://sonar.ekino.com"
+
+  var skipCompile = true
 }

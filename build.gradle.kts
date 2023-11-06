@@ -7,12 +7,12 @@ plugins {
   jacoco
 
   id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
-  id("io.gitlab.arturbosch.detekt") version "1.23.1"
+  id("io.gitlab.arturbosch.detekt") version "1.23.3"
   id("com.gradle.plugin-publish") version "1.2.1"
 }
 
 group = "com.ekino.oss.plugin"
-version = "4.2.0"
+version = "4.3.0"
 findProperty("releaseVersion")?.let { version = it }
 
 repositories {
@@ -21,13 +21,13 @@ repositories {
 }
 
 dependencies {
-  implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.0.0.2929")
-  implementation("org.jlleitschuh.gradle.ktlint:org.jlleitschuh.gradle.ktlint.gradle.plugin:11.3.1")
-  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.1")
+  implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.4.1.3373")
+  implementation("org.jlleitschuh.gradle.ktlint:org.jlleitschuh.gradle.ktlint.gradle.plugin:11.6.1")
+  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.3")
 
   testImplementation(gradleTestKit())
   testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.27.0")
-  testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
+  testImplementation("org.junit.jupiter:junit-jupiter:5.10.1")
 }
 
 tasks {
@@ -38,27 +38,27 @@ tasks {
 
   jacocoTestReport {
     reports {
-      xml.required.set(true)
-      html.required.set(false)
+      xml.required = true
+      html.required = false
     }
   }
 }
 
 configure<DetektExtension> {
   buildUponDefaultConfig = true
-  config = files("src/main/resources/detekt-config.yml")
+  config.setFrom(files("src/main/resources/detekt-config.yml"))
 }
 
 gradlePlugin {
-  website.set("https://github.com/ekino/kotlin-quality-plugin")
-  vcsUrl.set("https://github.com/ekino/kotlin-quality-plugin")
+  website = "https://github.com/ekino/kotlin-quality-plugin"
+  vcsUrl = "https://github.com/ekino/kotlin-quality-plugin"
   plugins {
     create("kotlin-quality") {
       id = "com.ekino.oss.plugin.kotlin-quality"
       implementationClass = "com.ekino.oss.plugin.KotlinQualityPlugin"
       displayName = "Kotlin Quality plugin"
       description = "Kotlin Quality plugin for Ekino projects"
-      tags.set(listOf("ekino", "kotlin", "quality", "ktlint", "detekt", "sonarqube"))
+      tags = listOf("ekino", "kotlin", "quality", "ktlint", "detekt", "sonarqube")
     }
   }
 }

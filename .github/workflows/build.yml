@@ -10,13 +10,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        java: [ 11, 17, 21 ]
+    name: Java ${{ matrix.java }}
     steps:
       - uses: actions/checkout@v4
       - name: Setup java
         uses: actions/setup-java@v3
         with:
           distribution: "temurin"
-          java-version: 11
+          java-version: ${{ matrix.java }}
           cache: "gradle"
       - name: Build
         run: ./gradlew build jacocoTestReport --no-daemon
