@@ -23,7 +23,7 @@ repositories {
 dependencies {
   implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.0.0.2929")
   implementation("org.jlleitschuh.gradle.ktlint:org.jlleitschuh.gradle.ktlint.gradle.plugin:11.3.1")
-  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.1")
+  implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.23.4")
 
   testImplementation(gradleTestKit())
   testImplementation("com.willowtreeapps.assertk:assertk-jvm:0.27.0")
